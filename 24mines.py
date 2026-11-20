@@ -2,8 +2,10 @@ import random
 import time
 import requests
 
-domen = ""
-better_auth = ""
+import config
+
+domen = config.DOMEN
+better_auth = config.TOKEN
 
 BASE_URL = f"https://{domen}/api/arcade/mines"
 
