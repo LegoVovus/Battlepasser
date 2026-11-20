@@ -1,8 +1,14 @@
 import requests
+import config
 
-domen = ""
-coin = ""
-better_auth = ""
+domen = config.DOMEN
+better_auth = config.TOKEN
+
+coin = input("Input the coin name: ")
+amount = input("Input the amount of each trade: ")
+type = input("Input the trade type (buy/sell): ")
+
+i = int(input("Input the amount of trades: "))
 
 BASE_URL = f"https://{domen}/api/coin/{coin}/trade"
 
@@ -29,10 +35,10 @@ session = requests.Session()
 session.cookies.update(COOKIES)
 session.headers.update(HEADERS)
 
-def start_buy(amount, type):
+def start_buy():
     payload = {
         "amount": amount,
-        "type": type
+        "type": type.upper()
     }
 
     r = session.post(BASE_URL, json=payload, timeout=1)
@@ -40,3 +46,9 @@ def start_buy(amount, type):
 
     data = r.json()
     print(f"{type} | Started on {domen}: {data}")
+
+for counter in range(1, i + 1):
+    try:
+        start_buy()
+    except requests.RequestException as e:
+        print(f"Error! {e}")
