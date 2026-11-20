@@ -18,6 +18,8 @@ while True:
                 pass
             elif start_choice == "3":
                 pass
+            elif start_choice == "0":
+                break
             else: 
                 print("Error! Try again")
 
