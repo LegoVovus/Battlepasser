@@ -2,14 +2,14 @@ import requests
 import config
 
 
-domen = ""
-better_auth = ""
+domen = config.DOMEN
+better_auth = config.TOKEN
 
-coin = ""
-amount = ""
-type = ""
+coin = input("Coin name: ")
+amount = float(input("Amount of each trade: "))
+type = input("Type of trade (buy/sell): ")
 
-i = ""
+i = int(input("Amount of trades: "))
 
 BASE_URL = f"https://{domen}/api/coin/{coin}/trade"
 
@@ -45,7 +45,7 @@ def start_buy():
     r.raise_for_status()
 
     data = r.json()
-    print(f"{type} | Started on {domen}: {data}")
+    print(f"{type.upper()} | Started on {domen}: {data}")
 
 
 for counter in range(1, i + 1):
