@@ -7,6 +7,8 @@ import config
 domen = config.DOMEN
 better_auth = config.TOKEN
 
+amount = float(input("Amount of each game: "))
+
 BASE_URL = f"https://{domen}/api/arcade/mines"
 
 COOKIES = {

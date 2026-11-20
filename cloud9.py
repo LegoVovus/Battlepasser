@@ -1,8 +1,12 @@
 import requests
 import time
 
-domen = "catplay.org"
-better_auth = "6NLvXAfCzxS5CTUbn7VuSMtREI2EQKUN.O6j7Zlckv2Lm7hqDlNib1k83DmEhMml88E%2BcHCke3wE%3D"
+import config
+
+domen = config.DOMEN
+better_auth = config.TOKEN
+
+amount = input("Amount of each game: ")
 
 BASE_URL = f"https://{domen}/api/arcade/mines"
 
@@ -31,7 +35,7 @@ session.headers.update(HEADERS)
 
 def start_game():
     payload = {
-        "betAmount": 0.01,
+        "betAmount": amount,
         "mineCount": 3
     }
 
