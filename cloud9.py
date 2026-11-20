@@ -6,7 +6,7 @@ import config
 domen = config.DOMEN
 better_auth = config.TOKEN
 
-amount = input("Amount of each game: ")
+amount = float(input("Amount of each game: "))
 
 BASE_URL = f"https://{domen}/api/arcade/mines"
 
@@ -72,8 +72,6 @@ def main():
                     break
 
                 tile_index += 1
-
-                time.sleep(0.25)
             else:
                 print("Reached tile 22.\n")
                 quit()
