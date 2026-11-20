@@ -1,7 +1,17 @@
 import requests
 
-better_auth = ""
-domen = ""
+import config
+
+better_auth = config.TOKEN
+domen = config.DOMEN
+
+type = input("Type of game (coinflip/slots): ")
+
+if type == "coinflip":
+    side = input("Side (heads/tails): ")
+
+amount = float(input("Amount of each game: "))
+i = int(input("Amount of games: "))
 
 BASE_URL = f"https://{domen}/api/arcade"
 
@@ -28,7 +38,7 @@ session = requests.Session()
 session.cookies.update(COOKIES)
 session.headers.update(HEADERS)
 
-def coinflip(amount, side):
+def coinflip():
     payload = {
         "amount": amount,
         "side": side
@@ -40,7 +50,7 @@ def coinflip(amount, side):
     data = r.json()
     print(f"COINFLIP | Started on {domen}: {data}")
 
-def slots(amount):
+def slots():
     payload = {
         "amount": amount
     }
@@ -50,3 +60,9 @@ def slots(amount):
 
     data = r.json()
     print(f"SLOTS | Started on {domen}: {data}")
+
+for counter in range(1, i + 1):
+    if type == "coinflip":
+        coinflip()
+    elif type == "slots":
+        slots()
