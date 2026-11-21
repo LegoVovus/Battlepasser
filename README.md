@@ -2,7 +2,7 @@
 ## Easy start
 - Set the config.py up
   - Provide the Rugplay domain
-  - Paste your Better Auth Session 
+  - Paste your Better Auth Session Token
 - Open your favourite or needed module! All extra information you'll see there
 ## Modules
 In Battlepasser there are such modules as:
