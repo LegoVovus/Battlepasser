@@ -74,9 +74,9 @@ for counter in range(1, q + 1):
         create_coin(current_token, ticker)
         start_buy(ticker)
     except requests.RequestException as e:
-        print(f"Ошибка при отправке запроса #{counter}: {e}")
+        print(f"Error while #{counter}: {e}")
         time.sleep(2)
         if hasattr(e, 'response') and e.response is not None:
-            print(f"Ответ сервера: {e.response.text}")
+            print(f"Server's answer: {e.response.text}")
         time.sleep(5)
     time.sleep(120)
