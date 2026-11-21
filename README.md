@@ -12,7 +12,6 @@ In Battlepasser there are such modules as:
 - 24mines - playing with 24 mines
 - Coin Creator - creating coins for you with 120sec delay
 - Hopium - bets on a hopium
-- Commenter - commenting under a coin 
 > On [catplay](catplay.org) there's a delay for creating coins (1 per 2min; 5 per hour).
 
 ## And that's not all! Battlepasser is getting updates very quickly!
