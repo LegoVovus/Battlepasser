@@ -1,4 +1,4 @@
-# Battlepasser - all-in-one script which automates most of things on Rugplay
+# Battlepasser — all-in-one script which automates most of things on Rugplay
 ## Easy start
 - Set the config.py up
   - Provide the Rugplay domain
