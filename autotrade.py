@@ -7,7 +7,7 @@ better_auth = config.TOKEN
 
 coin = input("Coin name: ")
 amount = float(input("Amount of each trade: "))
-type = input("P.S. Auto means buy and then sell coin for that amount\nType of trade (buy/sell/auto): ")
+type = input("Type of trade (buy/sell): ")
 
 i = int(input("Amount of trades: "))
 
@@ -36,10 +36,10 @@ session = requests.Session()
 session.cookies.update(COOKIES)
 session.headers.update(HEADERS)
 
-def start_buy(trade):
+def start_buy():
     payload = {
         "amount": amount,
-        "type": trade
+        "type": type.upper()
     }
     r = session.post(BASE_URL, json=payload, timeout=1)
     r.raise_for_status()
@@ -50,15 +50,6 @@ def start_buy(trade):
 
 for counter in range(1, i + 1):
     try:
-        if type.upper() == "BUY":
-            for counter in range(1, i + 1):
-                start_buy("BUY")
-        elif type.upper() == "SELL":
-            for counter in range(1, i + 1):
-                start_buy("SELL")
-        elif type.upper() == "AUTO":
-            for counter in range(1, i + 1):
-                start_buy("BUY")
-                start_buy("SELL")
+        start_buy()
     except requests.RequestException as e:
         print(f"Error! {e}")
